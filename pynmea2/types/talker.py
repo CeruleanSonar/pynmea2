@@ -1017,21 +1017,22 @@ class ALK(TalkerSentence,SeaTalk):
         ("Data Byte 9", "data_byte9")
     )
 
+
 class RTH(TalkerSentence):
     """
     RTH
     """
     fields = (
-        ("Apparent Bearing to Target in Degrees", "ab"),
-        ("Apparent Bearing to Target in Compass Degrees", "ac"),
-        ("Apparent Elevation to Target in Degrees", "ae"),
-        ("Slant Range in Meters", "sr"),
-        ("True Bearing to Target in Degrees", "tb"),
-        ("True Bearing to Target in Compass Degrees", "cb"),
-        ("True Elevation to Target in Degrees", "te"),
-        ("Euler Roll", "er"),
-        ("Euler Pitch", "ep"),
-        ("Euler Yaw", "ey"),
-        ("Compass Heading", "ch"),
-        ("AGC Gain in db", "db")
+        ("Apparent Bearing to Target in Degrees", "ab", float),
+        ("Apparent Bearing to Target in Compass Degrees", "ac", float),
+        ("Apparent Elevation to Target in Degrees", "ae", float),
+        ("Slant Range in Meters", "sr", float),
+        ("True Bearing to Target in Degrees", "tb", float),
+        ("True Bearing to Target in Compass Degrees", "cb", float),
+        ("True Elevation to Target in Degrees", "te", float),
+        ("Euler Roll", "er", float),
+        ("Euler Pitch", "ep", float),
+        ("Euler Yaw", "ey", float),
+        ("Compass Heading", "ch", float),
+        ("AGC Gain in db", "db", float)
     )
