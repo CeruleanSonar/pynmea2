@@ -1036,3 +1036,21 @@ class RTH(TalkerSentence):
         ("Compass Heading", "ch", float),
         ("AGC Gain in db", "db", float)
     )
+
+
+class PDL(TalkerSentence):
+    """
+    PDL
+    """
+    fields = (
+        ("Time Microseconds", "tu", float),
+        ("Delta Time Microseconds", "dtu", float),
+        ("Angle Delta Roll Radians", "adr", float),
+        ("Angle Delta Pitch Radians", "adp", float),
+        ("Angle Delta Yaw Radians", "ady", float),
+        ("Position Delta X Meters", "pdx", float),
+        ("Position Delta Y Meters", "pdy", float),
+        ("Position Delta Z Meters", "pdz", float),
+        ("Confidence Percent", "c", float)
+    )
+
