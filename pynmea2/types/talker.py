@@ -1037,7 +1037,7 @@ class RTH(TalkerSentence):
         ("AGC Gain in db", "db", float)
     )
 
-
+#https://cerulean-sonar.gitbook.io/dvl-75-user-manual/communicating-with-the-dvl/outgoing-message-formats-dvl-to-host/usddvpdl-dvl-position-and-angle-deltas-message
 class PDL(TalkerSentence):
     """
     PDL
@@ -1053,4 +1053,44 @@ class PDL(TalkerSentence):
         ("Position Delta Z Meters", "pdz", float),
         ("Confidence Percent", "c", float)
     )
-
+#https://cerulean-sonar.gitbook.io/dvl-75-user-manual/communicating-with-the-dvl/outgoing-message-formats-dvl-to-host/usddvext-dvl-extended-data
+class EXT(TalkerSentence):
+    """
+    EXT
+    """
+    fields = (
+        ("Lock", "v"), # “T” DVL has lock on bottom, “F” DVL searching for bottom
+        ("GPS Status", "g"), # “A” fresh GPS fix, “V” invalid GPS fix, “X” stale GPS fix
+        ("IMU Calibration Status", "cal"), # a=system status digit, 0 to 3 | b=gyro status digit, 0 to 3 | c=accelerometer status digit, 0 to 3 | d=magnetometer status digit, 0 to 3
+        ("Roll", "r", float), # Degrees, Vehicle frame
+        ("Pitch", "p", float), # Degrees, Vehicle frame
+        ("Heading", "h", float), # Degrees; range 0 - 360, Vehicle Frame
+        ("Data Skips", "k", float), # How many attempts made since last successful ping returns
+        ("Velocity Up", "vu", float), # Meters/second, positive up, do not rely on this number
+        ("Altitude", "t", float), # Meters to target surface along sensor pointing axis
+        ("Velocity North", "vn", float), # Velocity North, m/s
+        ("Velocity East", "ve", float), # Velocity East, m/s
+        ("Latitude", "lat", float), # Platform Latitude in Decimal Digit format. 
+        ("Longitude", "lon", float), # Platform Longitude in Decimal Digit format. 
+        ("Elapsed Time", "et", float), # Elapsed Time, seconds
+        ("Quaternion W", "qw", float), # Quaternion W relative to sensor head, -1 to 1, east=0, level=0
+        ("Quaternion X", "qx", float), # Quaternion X relative to sensor head, -1 to 1, east=0, level=0
+        ("Quaternion Y", "qy", float), # Quaternion Y relative to sensor head, -1 to 1, east=0, level=0
+        ("Quaternion Z", "qz", float), # Quaternion Z relative to sensor head, -1 to 1, east=0, level=0
+        ("Gain A", "ga", float), # Channel A Gain, dB, from 6-66
+        ("Gain B", "gb", float), # Channel B Gain, dB, from 6-66
+        ("Gain C", "gc", float), # Channel C Gain, dB, from 6-66
+        ("Gain D", "gd", float), # Channel D Gain, dB, from 6-66
+        ("Lock A", "la"), # Channel A Lock, T/F
+        ("Lock B", "lb"), # Channel B Lock, T/F
+        ("Lock C", "lc"), # Channel C Lock, T/F
+        ("Lock D", "ld"), # Channel D Lock, T/F
+        ("Velocity A", "va", float), # Channel A Velocity, m/s
+        ("Velocity B", "vb", float), # Channel B Velocity, m/s
+        ("Velocity C", "vc", float), # Channel C Velocity, m/s
+        ("Velocity D", "vd", float), # Channel D Velocity, m/s
+        ("Range A", "ra", float), # Channel A Range, Meters
+        ("Range B", "rb", float), # Channel B Range, Meters
+        ("Range C", "rc", float), # Channel C Range, Meters
+        ("Range D", "rd", float) # Channel D Range, Meters
+    )
